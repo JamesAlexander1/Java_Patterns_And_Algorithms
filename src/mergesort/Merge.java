@@ -1,6 +1,6 @@
 package mergesort;
 
-import dto.Dto;
+import dto.Dto;;
 
 
 public abstract class Merge {
