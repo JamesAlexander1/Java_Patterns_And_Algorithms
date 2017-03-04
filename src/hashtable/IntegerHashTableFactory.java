@@ -1,12 +1,13 @@
 package hashtable;
 
 
-import pojo.IntPojo;
+import dto.Dto;
 
-public class IntegerHashTableFactory extends AbstractHashTableFactory<IntPojo> {
+
+public class IntegerHashTableFactory extends AbstractHashTableFactory<Dto> {
 
 	@Override
-	public AbstractHashTable<IntPojo> getInstance() {
+	public AbstractHashTable<Dto> getInstance() {
 		// TODO Auto-generated method stub
 		return new DtoHashTable();
 	}
