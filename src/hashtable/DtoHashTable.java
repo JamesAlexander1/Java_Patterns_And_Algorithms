@@ -9,6 +9,7 @@ import pojo.IntPojo;
 
 public class DtoHashTable extends AbstractHashTable<Dto> {
 
+	private static double DIVISION = 1.3;
 	private static Integer STARTSIZE = 50;
 	private Integer numOfItems;
 	
@@ -29,11 +30,11 @@ public class DtoHashTable extends AbstractHashTable<Dto> {
 		if(numOfItems >= (Integer.MAX_VALUE - 1)){
 			
 		}else{
-			Integer key = item.hashCode() % tableSize;
+			Integer key = generateHashCode(item);
 			//System.out.print(key + " " );
 			seperateChainAdd(table, key, item);
 			numOfItems ++;
-			if(numOfItems > (tableSize / 2)){
+			if(numOfItems > (tableSize / DIVISION)){
 				System.out.println("resizing");
 				resize();
 			}
@@ -43,7 +44,7 @@ public class DtoHashTable extends AbstractHashTable<Dto> {
 	@Override
 	public Dto remove(Dto item) {
 		
-		Integer key = item.hashCode() % tableSize;
+		Integer key = generateHashCode(item);
 		Dto removedItem = table[key];
 		
 		if(removedItem != null){
@@ -96,6 +97,8 @@ public class DtoHashTable extends AbstractHashTable<Dto> {
 			
 			if(table[i] != null){
 				seperateChainPrint(i);
+			}else{
+				System.out.println(i + " : ");
 			}
 			
 		}
@@ -128,19 +131,25 @@ public class DtoHashTable extends AbstractHashTable<Dto> {
 	private void seperateChainResize(Dto[] oldTable, Integer key, Dto[] newTable){
 		
 		Dto dto = oldTable[key];
+		
 		while(dto.getNextDto() != null){
-			Integer newKey = (dto.hashCode() % tableSize);
 			
+			Integer newKey = generateHashCode(dto);
+			//System.out.print("dto = " + dto.getValue() + " newKey = " + newKey + " tableSize = " + tableSize + " ");
 			seperateChainAdd(newTable, newKey, dto);
 			numOfItems ++;
 			Dto prevDto = dto;
 			dto = dto.getNextDto();
 			prevDto.setNextDto(null);
+			//newKey = 0;
 			
 		}
-		Integer newKey = (dto.hashCode() % tableSize);
+		
+		//last object in list.
+		Integer newKey = generateHashCode(dto);
 		seperateChainAdd(newTable, newKey, dto);
 		numOfItems ++;
+		System.out.println();
 	}
 	private void seperateChainPrint(Integer key){
 		
@@ -152,5 +161,9 @@ public class DtoHashTable extends AbstractHashTable<Dto> {
 			System.out.print(" -> " + loop.getValue());
 		}
 		System.out.println();
+	}
+	
+	private Integer generateHashCode(Dto dto){
+		return (dto.getValue().hashCode() % tableSize);
 	}
 }
