@@ -2,8 +2,10 @@ package factory;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import dao.LocalProjectFileSystemDAO;
 import dto.Dto;
 import dto.DtoList;
+import dto.StringDto;
  public abstract class DtoFactory {
 
 	 private static Integer MIN = 0;
@@ -32,6 +34,12 @@ import dto.DtoList;
 			array[i] = new Dto(randomNum);
 		}
 		
+		return array;
+	}
+	
+	public static StringDto[] getStringArray(Integer num){
+		
+		StringDto[] array = LocalProjectFileSystemDAO.getArray(num, "testfiles/1-1000.txt");
 		return array;
 	}
 }

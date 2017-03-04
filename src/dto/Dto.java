@@ -22,11 +22,16 @@ public class Dto implements Comparable<Dto>{
 	public void setValue(Integer value) {
 		this.value = value;
 	}
+	
 	public Dto getNextDto() {
 		return nextDto;
 	}
+	
+	
 	public void setNextDto(Dto nextDto) {
 		this.nextDto = nextDto;
+		
 	}
+	
 
 }
