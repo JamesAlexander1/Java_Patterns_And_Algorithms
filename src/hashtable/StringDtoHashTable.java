@@ -5,7 +5,7 @@ import dto.StringDto;
 
 public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 
-	private static double DIVISION = 1.3;
+	private static double DIVISION = 1.1;
 	private static Integer STARTSIZE = 50;
 	private Integer numOfItems;
 	
@@ -27,7 +27,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 			
 		}else{
 			Integer key = generateHashCode(item);
-			//System.out.print(key + " " );
+			
 			seperateChainAdd(table, key, item);
 			numOfItems ++;
 			if(numOfItems > (tableSize / DIVISION)){
@@ -108,6 +108,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 	
 	private void seperateChainAdd(StringDto[] table, Integer key, StringDto item){
 		
+		
 		if(table[key] == null){
 			
 			table[key] = item;
@@ -145,7 +146,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 		Integer newKey = generateHashCode(dto);
 		seperateChainAdd(newTable, newKey, dto);
 		numOfItems ++;
-		System.out.println();
+		//System.out.println();
 	}
 	private void seperateChainPrint(Integer key){
 		
@@ -160,6 +161,6 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 	}
 	
 	private Integer generateHashCode(StringDto dto){
-		return (dto.getValue().hashCode() % tableSize);
+		return Math.abs((dto.getValue().hashCode() % tableSize));
 	}
 }

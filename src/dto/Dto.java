@@ -1,16 +1,16 @@
 package dto;
 
-public class Dto implements Comparable<Dto>{
+public class Dto extends AbstractDto<Integer> implements Comparable<AbstractDto<Integer>>{
 
 	private Integer value;
-	private Dto nextDto;
+	private AbstractDto<Integer> nextDto;
 	
 	public Dto(Integer valueArg){
 		
 		setValue(valueArg);
 	}
 	@Override
-	public int compareTo(Dto dto) {
+	public int compareTo(AbstractDto<Integer> dto) {
 		Integer compareQuantity = dto.getValue();
 		
 		//Ascending Order
@@ -23,12 +23,12 @@ public class Dto implements Comparable<Dto>{
 		this.value = value;
 	}
 	
-	public Dto getNextDto() {
+	public AbstractDto<Integer> getNextDto() {
 		return nextDto;
 	}
 	
 	
-	public void setNextDto(Dto nextDto) {
+	public void setNextDto(AbstractDto<Integer> nextDto) {
 		this.nextDto = nextDto;
 		
 	}

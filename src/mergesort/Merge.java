@@ -1,15 +1,16 @@
 package mergesort;
 
-import dto.Dto;;
+import dto.AbstractDto;
+import dto.Dto;
 
 
 public abstract class Merge {
 
 	
-	public static Dto merge(Dto listA, Dto listB){
+	public static AbstractDto<Integer> merge(AbstractDto<Integer> listA, AbstractDto<Integer> listB){
 		
-		Dto listC = null;
-		Dto first = null;
+		AbstractDto<Integer> listC = null;
+		AbstractDto<Integer> first = null;
 		//System.out.println("merging: a = " + listA.getValue() + " and b = " + listB.getValue());
 		while(listA != null && listB != null){
 			

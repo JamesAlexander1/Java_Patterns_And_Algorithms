@@ -1,16 +1,17 @@
 package mergesort;
 
+import dto.AbstractDto;
 import dto.Dto;
 
 
 public abstract class MergeSort {
 
 	
-	public static Dto mergeSort(Dto listElement){
+	public static AbstractDto<Integer> mergeSort(AbstractDto<Integer> listElement){
 		
 		
-		Dto linkA;
-		Dto linkB;
+		AbstractDto<Integer> linkA;
+		AbstractDto<Integer> linkB;
 		
 		if(listElement == null || listElement.getNextDto() == null){
 			return listElement;

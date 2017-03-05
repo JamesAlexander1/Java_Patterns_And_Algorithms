@@ -10,7 +10,7 @@ public class DtoList {
 	private static Integer MAX = 100;
 	
 	private Integer size;
-	private Dto firstDto;
+	private AbstractDto<Integer> firstDto;
 	
 	private boolean isEmpty;
 	
@@ -35,7 +35,7 @@ public class DtoList {
 			isEmpty = false;
 		}else{
 			
-			Dto newDto = new Dto(randomNum);
+			AbstractDto<Integer> newDto = new Dto(randomNum);
 			newDto.setNextDto(firstDto);
 			firstDto = newDto;
 			
@@ -51,7 +51,7 @@ public class DtoList {
 	}
 	public void print(){
 		
-		Dto printRef = this.firstDto;
+		AbstractDto<Integer> printRef = this.firstDto;
 		
 		for(int i = 0; i < size; i++){
 			
@@ -61,10 +61,10 @@ public class DtoList {
 		System.out.println();
 	}
 	
-	public Dto getFirstDto(){
+	public AbstractDto<Integer> getFirstDto(){
 		return firstDto;
 	}
-	public void setFirstDto(Dto first){
-		firstDto = first;
+	public void setFirstDto(AbstractDto<Integer> abstractDto){
+		firstDto = abstractDto;
 	}
 }

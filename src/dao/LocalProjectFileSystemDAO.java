@@ -19,11 +19,15 @@ public abstract class LocalProjectFileSystemDAO {
 		
 		if(file.exists()){
 			
+			BufferedReader reader = null;
 			try {
 				
-				BufferedReader reader = new BufferedReader(new FileReader(file));
+				//initialize connection to file in local project directory
+				reader = new BufferedReader(new FileReader(file));
 				String line;
-				//StringBuilder builder = new StringBuilder();
+				
+				
+				//read line by line into array.
 				
 				for(int i = 0; i < num; i ++){
 					
@@ -36,14 +40,33 @@ public abstract class LocalProjectFileSystemDAO {
 				
 				
 				
-			} catch (FileNotFoundException e) {
+			}catch (FileNotFoundException e) {
 				
 				e.printStackTrace();
+			
 				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
+				
+			}finally{
+				
+				//close file connection regardless of method returning exception or not.
+				
+				if(reader != null){
+					
+					
+					try {
+						reader.close();
+					} catch (IOException e) {
+						
+						
+						e.printStackTrace();
+					}
+				}
 			}
+			
+			
 		}else{
 			//throw exception
 		}

@@ -1,8 +1,9 @@
 package testing;
 
 
+import dto.AbstractDto;
 import dto.Dto;
-import dto.DtoList;
+
 import factory.DtoFactory;
 import hashtable.AbstractHashTable;
 
@@ -15,29 +16,10 @@ public class HashTableTesting {
 	public static void main(String[] args) {
 		
 
-		/*IntPojo[] array = (IntPojo[]) new IntPojoFactory().getArray(50);
 		
-		AbstractHashTable<IntPojo> hashtable;
-		hashtable = new IntegerHashTableFactory().getInstance();
-		for(IPojo<Integer> pojo : array){
-			System.out.print(pojo.get() + " ");
-			
-		}
-		System.out.println();
-		
-		for(IntPojo pojo : array){
-			
-			hashtable.insert(pojo);
-			
-		}
-		
-		System.out.println();
-		
-		System.out.println(" printing");
-		hashtable.print();*/
 		
 		Dto[] test1 = DtoFactory.getArray(50);
-		AbstractHashTable<Dto> hashtable = new IntegerHashTableFactory().getInstance();
+		AbstractHashTable<AbstractDto<Integer>> hashtable = new IntegerHashTableFactory().getInstance();
 		
 		System.out.print("initial array: ");
 		for(Dto temp : test1){

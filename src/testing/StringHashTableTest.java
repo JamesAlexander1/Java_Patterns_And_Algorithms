@@ -2,20 +2,20 @@ package testing;
 
 import dto.StringDto;
 import factory.DtoFactory;
-import hashtable.StringDtoHashTable;
+import hashtable.AbstractHashTable;
+
+import hashtable.StringDtoHashTableFactory;
 
 public class StringHashTableTest {
 	
 	public static void main(String[] args) {
 		
-		StringDto[] strings = DtoFactory.getStringArray(50);
+		StringDto[] strings = DtoFactory.getStringArray(150);
 		
-		for(StringDto string : strings){
-			System.out.println(string.getValue());
-		}
+		
 		
 		//to do: make factory
-		StringDtoHashTable hashtable = new StringDtoHashTable();
+		AbstractHashTable<StringDto> hashtable = new StringDtoHashTableFactory().getInstance();
 		for(StringDto dto : strings){
 			hashtable.insert(dto);
 		}
