@@ -4,13 +4,13 @@ import dto.AbstractDto;
 import dto.Dto;
 
 
-public abstract class Merge {
+public class Merge<E> {
 
 	
-	public static AbstractDto<Integer> merge(AbstractDto<Integer> listA, AbstractDto<Integer> listB){
+	public AbstractDto<E> merge(AbstractDto<E> listA, AbstractDto<E> listB){
 		
-		AbstractDto<Integer> listC = null;
-		AbstractDto<Integer> first = null;
+		AbstractDto<E> listC = null;
+		AbstractDto<E> first = null;
 		//System.out.println("merging: a = " + listA.getValue() + " and b = " + listB.getValue());
 		while(listA != null && listB != null){
 			

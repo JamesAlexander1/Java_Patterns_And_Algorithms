@@ -4,14 +4,14 @@ import dto.AbstractDto;
 import dto.Dto;
 
 
-public abstract class MergeSort {
+public class MergeSort<E> {
 
 	
-	public static AbstractDto<Integer> mergeSort(AbstractDto<Integer> listElement){
+	public AbstractDto<E> mergeSort(AbstractDto<E> listElement){
 		
 		
-		AbstractDto<Integer> linkA;
-		AbstractDto<Integer> linkB;
+		AbstractDto<E> linkA;
+		AbstractDto<E> linkB;
 		
 		if(listElement == null || listElement.getNextDto() == null){
 			return listElement;
@@ -29,6 +29,49 @@ public abstract class MergeSort {
 		listElement.setNextDto(null);
 		
 		
-		return Merge.merge(MergeSort.mergeSort(linkA), MergeSort.mergeSort(linkB));
+		return merge(mergeSort(linkA), mergeSort(linkB));
+	}
+	
+	private AbstractDto<E> merge(AbstractDto<E> listA, AbstractDto<E> listB){
+		
+		AbstractDto<E> listC = null;
+		AbstractDto<E> first = null;
+		//System.out.println("merging: a = " + listA.getValue() + " and b = " + listB.getValue());
+		while(listA != null && listB != null){
+			
+			if(listA.compareTo(listB) <= 0){
+				
+				if(listC != null){
+					
+				
+					listC.setNextDto(listA);
+					
+				}else{
+					first = listA;
+					//System.out.println("first set");
+				}
+				
+				listC = listA;
+				listA = listA.getNextDto();
+			}else{
+				if(listC != null){
+					
+					listC.setNextDto(listB);
+					
+				}else{
+					first = listB;
+					//System.out.println("first set");
+				}
+				
+				listC = listB;
+				listB = listB.getNextDto();
+				
+			}
+		}
+			
+		listC.setNextDto(((listA == null ? listB : listA)));
+		
+		//System.out.println("returning: " + first.getValue()); //+ " -> " + first.getNextDto().getValue());
+		return first;
 	}
 }
