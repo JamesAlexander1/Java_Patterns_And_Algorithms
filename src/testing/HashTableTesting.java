@@ -1,12 +1,11 @@
 package testing;
 
 
-import hashtable.AbstractHashTable;
-
-import hashtable.IntegerHashTableFactory;
 import structure.linkedlist.node.AbstractListNode;
 import structure.linkedlist.node.IntegerListNode;
-import structure.linkedlist.node.factory.ListNodeFactory;
+import structure.linkedlist.node.ListNodeFactory;
+import structures.hashtable.AbstractHashTable;
+import structures.hashtable.IntegerHashTableFactory;
 
 
 

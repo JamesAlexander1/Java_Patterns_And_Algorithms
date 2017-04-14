@@ -1,10 +1,8 @@
-package structure.linkedlist.node.factory;
+package structure.linkedlist.node;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 import structure.linkedlist.list.IntegerList;
-import structure.linkedlist.node.IntegerListNode;
-import structure.linkedlist.node.StringListNode;
 import util.dao.filesystem.LocalProjectFileSystemDAO;
  public abstract class ListNodeFactory {
 

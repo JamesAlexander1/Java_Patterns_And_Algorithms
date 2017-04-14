@@ -1,33 +1,37 @@
-package hashtable;
+package structures.hashtable;
 
+
+
+
+import structure.linkedlist.node.AbstractListNode;
 import structure.linkedlist.node.IntegerListNode;
-import structure.linkedlist.node.StringListNode;
 
-public class StringDtoHashTable extends AbstractHashTable<StringListNode>{
 
-	private static double DIVISION = 1.1;
+public class DtoHashTable extends AbstractHashTable<AbstractListNode<Integer>> {
+
+	private static double DIVISION = 1.3;
 	private static Integer STARTSIZE = 50;
 	private Integer numOfItems;
 	
-	private StringListNode[] table; 
+	private AbstractListNode<Integer>[] table; //Cant use IPojo<Integer> because of generic array issues.
 	
-	public StringDtoHashTable(){
+	protected DtoHashTable(){
 	
-		table = new StringListNode[STARTSIZE];
+		table = new IntegerListNode[STARTSIZE];
 		super.tableSize = STARTSIZE;
 		numOfItems = 0;
 		
 		
 	}
 	@Override
-	public void insert(StringListNode item) {
+	public void insert(AbstractListNode<Integer> item) {
 		
 		
 		if(numOfItems >= (Integer.MAX_VALUE - 1)){
 			
 		}else{
 			Integer key = generateHashCode(item);
-			
+			//System.out.print(key + " " );
 			seperateChainAdd(table, key, item);
 			numOfItems ++;
 			if(numOfItems > (tableSize / DIVISION)){
@@ -38,10 +42,10 @@ public class StringDtoHashTable extends AbstractHashTable<StringListNode>{
 	}
 
 	@Override
-	public StringListNode remove(StringListNode item) {
+	public AbstractListNode<Integer> remove(AbstractListNode<Integer> item) {
 		
 		Integer key = generateHashCode(item);
-		StringListNode removedItem = table[key];
+		AbstractListNode<Integer> removedItem = table[key];
 		
 		if(removedItem != null){
 			table[key] = null;
@@ -59,7 +63,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringListNode>{
 		System.out.println("Original hashtable:");
 		print();
 		System.out.println();
-		StringListNode[] newArray = new StringListNode[(tableSize * 2)];
+		IntegerListNode[] newArray = new IntegerListNode[(tableSize * 2)];
 		
 		int temp = tableSize;
 		tableSize = (tableSize * 2);
@@ -106,15 +110,14 @@ public class StringDtoHashTable extends AbstractHashTable<StringListNode>{
 		return numOfItems;
 	}
 	
-	private void seperateChainAdd(StringListNode[] table, Integer key, StringListNode item){
-		
+	private void seperateChainAdd(AbstractListNode<Integer>[] table, Integer key, AbstractListNode<Integer> item){
 		
 		if(table[key] == null){
 			
 			table[key] = item;
 		}else{
 			
-			StringListNode loop = table[key];
+			AbstractListNode<Integer> loop = table[key];
 			
 			while(loop.getNextDto() != null){
 				loop = loop.getNextDto();
@@ -125,9 +128,9 @@ public class StringDtoHashTable extends AbstractHashTable<StringListNode>{
 		//numOfItems ++;
 	}
 	
-	private void seperateChainResize(StringListNode[] oldTable, Integer key, StringListNode[] newTable){
+	private void seperateChainResize(AbstractListNode<Integer>[] oldTable, Integer key, AbstractListNode<Integer>[] newTable){
 		
-		StringListNode dto = oldTable[key];
+		AbstractListNode<Integer> dto = oldTable[key];
 		
 		while(dto.getNextDto() != null){
 			
@@ -135,7 +138,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringListNode>{
 			//System.out.print("dto = " + dto.getValue() + " newKey = " + newKey + " tableSize = " + tableSize + " ");
 			seperateChainAdd(newTable, newKey, dto);
 			numOfItems ++;
-			StringListNode prevDto = dto;
+			AbstractListNode<Integer> prevDto = dto;
 			dto = dto.getNextDto();
 			prevDto.setNextDto(null);
 			//newKey = 0;
@@ -146,11 +149,11 @@ public class StringDtoHashTable extends AbstractHashTable<StringListNode>{
 		Integer newKey = generateHashCode(dto);
 		seperateChainAdd(newTable, newKey, dto);
 		numOfItems ++;
-		//System.out.println();
+		System.out.println();
 	}
 	private void seperateChainPrint(Integer key){
 		
-		StringListNode loop = table[key];
+		AbstractListNode<Integer> loop = table[key];
 		System.out.print(key + " : " + loop.getValue());
 		while(loop.getNextDto() != null){
 			
@@ -160,7 +163,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringListNode>{
 		System.out.println();
 	}
 	
-	private Integer generateHashCode(StringListNode dto){
-		return Math.abs((dto.getValue().hashCode() % tableSize));
+	private Integer generateHashCode(AbstractListNode<Integer> dto){
+		return (dto.hashCode() % tableSize);
 	}
 }

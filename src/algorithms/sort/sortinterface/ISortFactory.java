@@ -1,6 +1,4 @@
-package algorithms.sort.factory;
-
-import algorithms.sort.sortinterface.ISort;
+package algorithms.sort.sortinterface;
 
 /**
  * sorting algorithm factory Interface. Sorting algorithm factories should implement this interface

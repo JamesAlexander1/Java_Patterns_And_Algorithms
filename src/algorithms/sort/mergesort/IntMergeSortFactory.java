@@ -1,6 +1,6 @@
-package algorithms.sort.factory;
+package algorithms.sort.mergesort;
 
-import algorithms.sort.mergesort.IntegerListMergeAlgorithm;
+import algorithms.sort.sortinterface.ISortFactory;
 import structure.linkedlist.list.IntegerList;
 
 /**

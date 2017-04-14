@@ -1,4 +1,4 @@
-package hashtable;
+package structures.hashtable;
 
 import structure.linkedlist.node.StringListNode;
 

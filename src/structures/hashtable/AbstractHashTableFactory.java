@@ -1,4 +1,4 @@
-package hashtable;
+package structures.hashtable;
 
 public abstract class AbstractHashTableFactory<E>{
 
