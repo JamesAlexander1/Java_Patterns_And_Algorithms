@@ -1,9 +1,9 @@
 package testing;
 
 
+import structure.linkedlist.list.ListFactory;
 import structure.linkedlist.node.AbstractListNode;
 import structure.linkedlist.node.IntegerListNode;
-import structure.linkedlist.node.ListNodeFactory;
 import structures.hashtable.AbstractHashTable;
 import structures.hashtable.IntegerHashTableFactory;
 
@@ -16,7 +16,7 @@ public class HashTableTesting {
 
 		
 		
-		IntegerListNode[] test1 = ListNodeFactory.getArray(50);
+		IntegerListNode[] test1 = ListFactory.getArray(50);
 		AbstractHashTable<AbstractListNode<Integer>> hashtable = new IntegerHashTableFactory().getInstance();
 		
 		System.out.print("initial array: ");

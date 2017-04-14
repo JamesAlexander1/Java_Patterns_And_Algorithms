@@ -1,10 +1,11 @@
-package structure.linkedlist.node;
+package structure.linkedlist.list;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import structure.linkedlist.list.IntegerList;
+import structure.linkedlist.node.IntegerListNode;
+import structure.linkedlist.node.StringListNode;
 import util.dao.filesystem.LocalProjectFileSystemDAO;
- public abstract class ListNodeFactory {
+ public abstract class ListFactory {
 
 	 private static Integer MIN = 0;
 	 private static Integer MAX = 100;
@@ -12,7 +13,7 @@ import util.dao.filesystem.LocalProjectFileSystemDAO;
 	
 	public static IntegerList getList(Integer numOfValues){
 		
-		IntegerList list = new IntegerList();
+		IntegerList list = IntegerList.getInstance();
 		
 		// populate list.	
 		for(int i = 0; i < numOfValues; i ++){

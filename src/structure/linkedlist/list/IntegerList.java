@@ -5,8 +5,12 @@ import java.util.concurrent.ThreadLocalRandom;
 import structure.linkedlist.node.AbstractListNode;
 import structure.linkedlist.node.IntegerListNode;
 
-// Quick Queue implementation for integers.
 
+/**
+ * Integer Queue.
+ * @author James
+ *
+ */
 public class IntegerList {
 
 	/**

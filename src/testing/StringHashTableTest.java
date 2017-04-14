@@ -1,6 +1,6 @@
 package testing;
 
-import structure.linkedlist.node.ListNodeFactory;
+import structure.linkedlist.list.ListFactory;
 import structure.linkedlist.node.StringListNode;
 import structures.hashtable.AbstractHashTable;
 import structures.hashtable.StringDtoHashTableFactory;
@@ -9,7 +9,7 @@ public class StringHashTableTest {
 	
 	public static void main(String[] args) {
 		
-		StringListNode[] strings = ListNodeFactory.getStringArray(150);
+		StringListNode[] strings = ListFactory.getStringArray(150);
 		
 		
 		
