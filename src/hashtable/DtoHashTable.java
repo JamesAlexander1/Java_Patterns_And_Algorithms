@@ -3,28 +3,28 @@ package hashtable;
 
 
 
-import dto.AbstractDto;
-import dto.Dto;
+import structure.linkedlist.node.AbstractListNode;
+import structure.linkedlist.node.IntegerListNode;
 
 
-public class DtoHashTable extends AbstractHashTable<AbstractDto<Integer>> {
+public class DtoHashTable extends AbstractHashTable<AbstractListNode<Integer>> {
 
 	private static double DIVISION = 1.3;
 	private static Integer STARTSIZE = 50;
 	private Integer numOfItems;
 	
-	private AbstractDto<Integer>[] table; //Cant use IPojo<Integer> because of generic array issues.
+	private AbstractListNode<Integer>[] table; //Cant use IPojo<Integer> because of generic array issues.
 	
 	protected DtoHashTable(){
 	
-		table = new Dto[STARTSIZE];
+		table = new IntegerListNode[STARTSIZE];
 		super.tableSize = STARTSIZE;
 		numOfItems = 0;
 		
 		
 	}
 	@Override
-	public void insert(AbstractDto<Integer> item) {
+	public void insert(AbstractListNode<Integer> item) {
 		
 		
 		if(numOfItems >= (Integer.MAX_VALUE - 1)){
@@ -42,10 +42,10 @@ public class DtoHashTable extends AbstractHashTable<AbstractDto<Integer>> {
 	}
 
 	@Override
-	public AbstractDto<Integer> remove(AbstractDto<Integer> item) {
+	public AbstractListNode<Integer> remove(AbstractListNode<Integer> item) {
 		
 		Integer key = generateHashCode(item);
-		AbstractDto<Integer> removedItem = table[key];
+		AbstractListNode<Integer> removedItem = table[key];
 		
 		if(removedItem != null){
 			table[key] = null;
@@ -63,7 +63,7 @@ public class DtoHashTable extends AbstractHashTable<AbstractDto<Integer>> {
 		System.out.println("Original hashtable:");
 		print();
 		System.out.println();
-		Dto[] newArray = new Dto[(tableSize * 2)];
+		IntegerListNode[] newArray = new IntegerListNode[(tableSize * 2)];
 		
 		int temp = tableSize;
 		tableSize = (tableSize * 2);
@@ -110,14 +110,14 @@ public class DtoHashTable extends AbstractHashTable<AbstractDto<Integer>> {
 		return numOfItems;
 	}
 	
-	private void seperateChainAdd(AbstractDto<Integer>[] table, Integer key, AbstractDto<Integer> item){
+	private void seperateChainAdd(AbstractListNode<Integer>[] table, Integer key, AbstractListNode<Integer> item){
 		
 		if(table[key] == null){
 			
 			table[key] = item;
 		}else{
 			
-			AbstractDto<Integer> loop = table[key];
+			AbstractListNode<Integer> loop = table[key];
 			
 			while(loop.getNextDto() != null){
 				loop = loop.getNextDto();
@@ -128,9 +128,9 @@ public class DtoHashTable extends AbstractHashTable<AbstractDto<Integer>> {
 		//numOfItems ++;
 	}
 	
-	private void seperateChainResize(AbstractDto<Integer>[] oldTable, Integer key, AbstractDto<Integer>[] newTable){
+	private void seperateChainResize(AbstractListNode<Integer>[] oldTable, Integer key, AbstractListNode<Integer>[] newTable){
 		
-		AbstractDto<Integer> dto = oldTable[key];
+		AbstractListNode<Integer> dto = oldTable[key];
 		
 		while(dto.getNextDto() != null){
 			
@@ -138,7 +138,7 @@ public class DtoHashTable extends AbstractHashTable<AbstractDto<Integer>> {
 			//System.out.print("dto = " + dto.getValue() + " newKey = " + newKey + " tableSize = " + tableSize + " ");
 			seperateChainAdd(newTable, newKey, dto);
 			numOfItems ++;
-			AbstractDto<Integer> prevDto = dto;
+			AbstractListNode<Integer> prevDto = dto;
 			dto = dto.getNextDto();
 			prevDto.setNextDto(null);
 			//newKey = 0;
@@ -153,7 +153,7 @@ public class DtoHashTable extends AbstractHashTable<AbstractDto<Integer>> {
 	}
 	private void seperateChainPrint(Integer key){
 		
-		AbstractDto<Integer> loop = table[key];
+		AbstractListNode<Integer> loop = table[key];
 		System.out.print(key + " : " + loop.getValue());
 		while(loop.getNextDto() != null){
 			
@@ -163,7 +163,7 @@ public class DtoHashTable extends AbstractHashTable<AbstractDto<Integer>> {
 		System.out.println();
 	}
 	
-	private Integer generateHashCode(AbstractDto<Integer> dto){
+	private Integer generateHashCode(AbstractListNode<Integer> dto){
 		return (dto.hashCode() % tableSize);
 	}
 }

@@ -1,26 +1,26 @@
 package hashtable;
 
-import dto.Dto;
-import dto.StringDto;
+import structure.linkedlist.node.IntegerListNode;
+import structure.linkedlist.node.StringListNode;
 
-public class StringDtoHashTable extends AbstractHashTable<StringDto>{
+public class StringDtoHashTable extends AbstractHashTable<StringListNode>{
 
 	private static double DIVISION = 1.1;
 	private static Integer STARTSIZE = 50;
 	private Integer numOfItems;
 	
-	private StringDto[] table; 
+	private StringListNode[] table; 
 	
 	public StringDtoHashTable(){
 	
-		table = new StringDto[STARTSIZE];
+		table = new StringListNode[STARTSIZE];
 		super.tableSize = STARTSIZE;
 		numOfItems = 0;
 		
 		
 	}
 	@Override
-	public void insert(StringDto item) {
+	public void insert(StringListNode item) {
 		
 		
 		if(numOfItems >= (Integer.MAX_VALUE - 1)){
@@ -38,10 +38,10 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 	}
 
 	@Override
-	public StringDto remove(StringDto item) {
+	public StringListNode remove(StringListNode item) {
 		
 		Integer key = generateHashCode(item);
-		StringDto removedItem = table[key];
+		StringListNode removedItem = table[key];
 		
 		if(removedItem != null){
 			table[key] = null;
@@ -59,7 +59,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 		System.out.println("Original hashtable:");
 		print();
 		System.out.println();
-		StringDto[] newArray = new StringDto[(tableSize * 2)];
+		StringListNode[] newArray = new StringListNode[(tableSize * 2)];
 		
 		int temp = tableSize;
 		tableSize = (tableSize * 2);
@@ -106,7 +106,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 		return numOfItems;
 	}
 	
-	private void seperateChainAdd(StringDto[] table, Integer key, StringDto item){
+	private void seperateChainAdd(StringListNode[] table, Integer key, StringListNode item){
 		
 		
 		if(table[key] == null){
@@ -114,7 +114,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 			table[key] = item;
 		}else{
 			
-			StringDto loop = table[key];
+			StringListNode loop = table[key];
 			
 			while(loop.getNextDto() != null){
 				loop = loop.getNextDto();
@@ -125,9 +125,9 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 		//numOfItems ++;
 	}
 	
-	private void seperateChainResize(StringDto[] oldTable, Integer key, StringDto[] newTable){
+	private void seperateChainResize(StringListNode[] oldTable, Integer key, StringListNode[] newTable){
 		
-		StringDto dto = oldTable[key];
+		StringListNode dto = oldTable[key];
 		
 		while(dto.getNextDto() != null){
 			
@@ -135,7 +135,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 			//System.out.print("dto = " + dto.getValue() + " newKey = " + newKey + " tableSize = " + tableSize + " ");
 			seperateChainAdd(newTable, newKey, dto);
 			numOfItems ++;
-			StringDto prevDto = dto;
+			StringListNode prevDto = dto;
 			dto = dto.getNextDto();
 			prevDto.setNextDto(null);
 			//newKey = 0;
@@ -150,7 +150,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 	}
 	private void seperateChainPrint(Integer key){
 		
-		StringDto loop = table[key];
+		StringListNode loop = table[key];
 		System.out.print(key + " : " + loop.getValue());
 		while(loop.getNextDto() != null){
 			
@@ -160,7 +160,7 @@ public class StringDtoHashTable extends AbstractHashTable<StringDto>{
 		System.out.println();
 	}
 	
-	private Integer generateHashCode(StringDto dto){
+	private Integer generateHashCode(StringListNode dto){
 		return Math.abs((dto.getValue().hashCode() % tableSize));
 	}
 }

@@ -1,14 +1,14 @@
 package hashtable;
 
 
-import dto.AbstractDto;
-import dto.Dto;
+import structure.linkedlist.node.AbstractListNode;
+import structure.linkedlist.node.IntegerListNode;
 
 
-public class IntegerHashTableFactory extends AbstractHashTableFactory<AbstractDto<Integer>> {
+public class IntegerHashTableFactory extends AbstractHashTableFactory<AbstractListNode<Integer>> {
 
 	@Override
-	public AbstractHashTable<AbstractDto<Integer>> getInstance() {
+	public AbstractHashTable<AbstractListNode<Integer>> getInstance() {
 		// TODO Auto-generated method stub
 		return new DtoHashTable();
 	}

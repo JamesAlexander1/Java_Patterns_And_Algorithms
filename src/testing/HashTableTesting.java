@@ -1,13 +1,12 @@
 package testing;
 
 
-import dto.AbstractDto;
-import dto.Dto;
-
-import factory.DtoFactory;
 import hashtable.AbstractHashTable;
 
 import hashtable.IntegerHashTableFactory;
+import structure.linkedlist.node.AbstractListNode;
+import structure.linkedlist.node.IntegerListNode;
+import structure.linkedlist.node.factory.ListNodeFactory;
 
 
 
@@ -18,15 +17,15 @@ public class HashTableTesting {
 
 		
 		
-		Dto[] test1 = DtoFactory.getArray(50);
-		AbstractHashTable<AbstractDto<Integer>> hashtable = new IntegerHashTableFactory().getInstance();
+		IntegerListNode[] test1 = ListNodeFactory.getArray(50);
+		AbstractHashTable<AbstractListNode<Integer>> hashtable = new IntegerHashTableFactory().getInstance();
 		
 		System.out.print("initial array: ");
-		for(Dto temp : test1){
+		for(IntegerListNode temp : test1){
 			System.out.print(temp.getValue() + " ");
 		}
 		
-		for(Dto temp: test1){
+		for(IntegerListNode temp: test1){
 			hashtable.insert(temp);
 		}
 		

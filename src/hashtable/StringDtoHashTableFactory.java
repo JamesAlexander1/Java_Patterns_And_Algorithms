@@ -1,11 +1,11 @@
 package hashtable;
 
-import dto.StringDto;
+import structure.linkedlist.node.StringListNode;
 
-public class StringDtoHashTableFactory extends AbstractHashTableFactory<StringDto>{
+public class StringDtoHashTableFactory extends AbstractHashTableFactory<StringListNode>{
 
 	@Override
-	public AbstractHashTable<StringDto> getInstance() {
+	public AbstractHashTable<StringListNode> getInstance() {
 		
 		return new StringDtoHashTable();
 	}
