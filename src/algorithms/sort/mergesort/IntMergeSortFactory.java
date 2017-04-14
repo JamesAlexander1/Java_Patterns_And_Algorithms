@@ -1,6 +1,6 @@
 package algorithms.sort.mergesort;
 
-import algorithms.sort.sortinterface.ISortFactory;
+import algorithms.sort.ISortFactory;
 import structure.linkedlist.list.IntegerList;
 
 /**
@@ -8,12 +8,20 @@ import structure.linkedlist.list.IntegerList;
  * @author james
  *
  */
-public class IntMergeSortFactory implements ISortFactory<IntegerList>{
+public class IntMergeSortFactory implements  ISortFactory<IntegerList>{
 
+	/**
+	 * experimenting with different factory methods.
+	 */
+	static IntegerListMergeAlgorithm algo;
+	static{
+		algo = new IntegerListMergeAlgorithm();
+	}
+	
 	@Override
 	public IntegerListMergeAlgorithm getInstance() {
 		
-		return new IntegerListMergeAlgorithm();
+		return algo;
 	}
 
 	

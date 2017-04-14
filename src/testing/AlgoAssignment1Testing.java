@@ -9,7 +9,7 @@ public class AlgoAssignment1Testing {
 	public static void main(String[] args) {
 		
 		
-		DoubleListMergeAlgorithm algo = new DoubleListMergeAlgorithm();
+		/**DoubleListMergeAlgorithm algo = new DoubleListMergeAlgorithm();
 		
 		DoubleList list = new DoubleList();
 		for(int i = 0; i < NUMARGS; i ++){
@@ -19,7 +19,7 @@ public class AlgoAssignment1Testing {
 		
 		algo.sort(list);
 		
-		list.print();
+		list.print();**/
 
 	}
 

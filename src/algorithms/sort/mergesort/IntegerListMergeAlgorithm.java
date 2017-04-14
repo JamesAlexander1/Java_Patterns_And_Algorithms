@@ -1,6 +1,6 @@
 package algorithms.sort.mergesort;
 
-import algorithms.sort.sortinterface.ISort;
+import algorithms.sort.ISort;
 import structure.linkedlist.list.IntegerList;
 
 /**
@@ -17,7 +17,7 @@ public class IntegerListMergeAlgorithm implements ISort<IntegerList> {
 	/**
 	 * No argument constructor.
 	 */
-	public IntegerListMergeAlgorithm(){
+	protected IntegerListMergeAlgorithm(){
 		algorithm = new MergeSort<Integer>();
 	}
 	

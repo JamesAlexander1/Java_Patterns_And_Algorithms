@@ -26,7 +26,7 @@ public class DoubleList {
 	/**
 	 * no argument constructor.
 	 */
-	public DoubleList(){
+	private DoubleList(){
 		
 		size = 0;
 		firstDto = null;
@@ -102,5 +102,13 @@ public class DoubleList {
 	 */
 	public void setFirstDto(AbstractListNode<Double> abstractDto){
 		firstDto = abstractDto;
+	}
+	
+	/**
+	 * static factory method
+	 * @return doubleList instance.
+	 */
+	public static DoubleList getInstance(){
+		return new DoubleList();
 	}
 }

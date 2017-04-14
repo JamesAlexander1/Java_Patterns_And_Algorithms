@@ -1,10 +1,10 @@
 package algorithms.sort.mergesort;
 
-import algorithms.sort.sortinterface.ISort;
+import algorithms.sort.ISort;
 import structure.linkedlist.list.DoubleList;
 
 /**
- * Merge Sort class for linked lists with Double type node values.
+ * Merge Sort class for linked lists with Double type node values. also has a static factory method.
  * @author James
  *
  */
@@ -18,7 +18,7 @@ public class DoubleListMergeAlgorithm implements ISort<DoubleList> {
 	/**
 	 * 0 argument constructor. 
 	 */
-	public DoubleListMergeAlgorithm(){
+	private DoubleListMergeAlgorithm(){
 		algorithm = new MergeSort<Double>();
 	}
 	
@@ -31,5 +31,14 @@ public class DoubleListMergeAlgorithm implements ISort<DoubleList> {
 		list.setFirstDto(algorithm.mergeSort(list.getFirstDto()));
 		
 	}
+	
+	/**
+	 * static Factory method.
+	 * @return new DoubleListMergeAlgorithm
+	 */
+	public static DoubleListMergeAlgorithm getInstance(){
+		return new DoubleListMergeAlgorithm();
+	}
+	
 
 }

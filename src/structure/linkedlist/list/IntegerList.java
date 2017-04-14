@@ -5,20 +5,31 @@ import java.util.concurrent.ThreadLocalRandom;
 import structure.linkedlist.node.AbstractListNode;
 import structure.linkedlist.node.IntegerListNode;
 
-// Quick Stack implementation.
+// Quick Queue implementation for integers.
 
 public class IntegerList {
 
+	/**
+	 * Max range for random number generator.
+	 */
 	private static Integer MIN = 0;
 	private static Integer MAX = 100;
 	
+	/**
+	 * size - self explanatory.
+	 * firstDto - first node (head) of queue.
+	 * isEmpty - self explanatory.
+	 */
 	private Integer size;
 	private AbstractListNode<Integer> firstDto;
 	
 	private boolean isEmpty;
 	
 	
-	public IntegerList(){
+	/**
+	 * 0 argument constructor
+	 */
+	private IntegerList(){
 		
 		size = 0;
 		firstDto = null;
@@ -26,6 +37,9 @@ public class IntegerList {
 		isEmpty = true;
 	}
 	
+	/**
+	 * Add a random number between and including MIN up to MAX to the list.
+	 */
 	public void AddRandom(){
 		
 		Integer randomNum = ThreadLocalRandom.current().nextInt(MIN, MAX + 1);
@@ -47,11 +61,18 @@ public class IntegerList {
 		
 		size ++;
 	}
+	
+	/**
+	 * pop head of list off queue.
+	 */
 	public void pop(){
 		
 		firstDto = firstDto.getNextDto();
 		size --;
 	}
+	/**
+	 * print list.
+	 */
 	public void print(){
 		
 		AbstractListNode<Integer> printRef = this.firstDto;
@@ -64,10 +85,26 @@ public class IntegerList {
 		System.out.println();
 	}
 	
+	/**
+	 * getter method for head node of List.
+	 * @return
+	 */
 	public AbstractListNode<Integer> getFirstDto(){
 		return firstDto;
 	}
+	/**
+	 * setter method for head node of list.
+	 * @param abstractDto
+	 */
 	public void setFirstDto(AbstractListNode<Integer> abstractDto){
 		firstDto = abstractDto;
+	}
+	
+	/**
+	 * static factory method
+	 * @return Integerlist instance.
+	 */
+	public static IntegerList getInstance(){
+		return new IntegerList();
 	}
 }

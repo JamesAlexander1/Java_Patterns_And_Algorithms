@@ -1,4 +1,4 @@
-package algorithms.sort.sortinterface;
+package algorithms.sort;
 
 public interface ISort<E> {
 
