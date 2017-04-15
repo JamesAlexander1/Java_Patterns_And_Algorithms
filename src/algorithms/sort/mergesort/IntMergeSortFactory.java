@@ -1,7 +1,7 @@
 package algorithms.sort.mergesort;
 
 import algorithms.sort.ISortFactory;
-import structure.linkedlist.list.IntegerList;
+import structures.linkedlist.list.IntegerList;
 
 /**
  * IntegerListMergeAlgorithm factory class.

@@ -1,4 +1,4 @@
-package structure.linkedlist.node;
+package structures.linkedlist.node;
 
 public class DoubleListNode extends AbstractListNode<Double>{
 

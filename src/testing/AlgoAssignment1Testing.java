@@ -1,7 +1,7 @@
 package testing;
 
 import algorithms.sort.mergesort.DoubleListMergeAlgorithm;
-import structure.linkedlist.list.DoubleList;
+import structures.linkedlist.list.DoubleList;
 
 public class AlgoAssignment1Testing {
 

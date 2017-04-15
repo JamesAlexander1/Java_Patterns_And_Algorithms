@@ -1,9 +1,9 @@
-package structure.linkedlist.list;
+package structures.linkedlist.list;
 
 import java.util.Random;
 
-import structure.linkedlist.node.AbstractListNode;
-import structure.linkedlist.node.DoubleListNode;
+import structures.linkedlist.node.AbstractListNode;
+import structures.linkedlist.node.DoubleListNode;
 
 /**
  * List wrapper class for generating and using a list (queue) of nodes with Double values.

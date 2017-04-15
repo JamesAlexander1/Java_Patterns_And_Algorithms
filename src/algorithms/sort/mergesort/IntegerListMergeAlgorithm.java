@@ -1,7 +1,7 @@
 package algorithms.sort.mergesort;
 
 import algorithms.sort.ISort;
-import structure.linkedlist.list.IntegerList;
+import structures.linkedlist.list.IntegerList;
 
 /**
  * Merge Sort implementation for a integer linked list.

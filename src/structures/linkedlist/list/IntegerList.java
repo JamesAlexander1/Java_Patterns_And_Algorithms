@@ -1,9 +1,9 @@
-package structure.linkedlist.list;
+package structures.linkedlist.list;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import structure.linkedlist.node.AbstractListNode;
-import structure.linkedlist.node.IntegerListNode;
+import structures.linkedlist.node.AbstractListNode;
+import structures.linkedlist.node.IntegerListNode;
 
 
 /**

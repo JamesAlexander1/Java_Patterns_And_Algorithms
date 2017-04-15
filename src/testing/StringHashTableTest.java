@@ -1,9 +1,9 @@
 package testing;
 
-import structure.linkedlist.list.ListFactory;
-import structure.linkedlist.node.StringListNode;
 import structures.hashtable.AbstractHashTable;
 import structures.hashtable.StringDtoHashTableFactory;
+import structures.linkedlist.list.ListFactory;
+import structures.linkedlist.node.StringListNode;
 
 public class StringHashTableTest {
 	

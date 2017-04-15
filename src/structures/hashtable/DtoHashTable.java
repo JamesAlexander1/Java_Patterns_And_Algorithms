@@ -3,8 +3,8 @@ package structures.hashtable;
 
 
 
-import structure.linkedlist.node.AbstractListNode;
-import structure.linkedlist.node.IntegerListNode;
+import structures.linkedlist.node.AbstractListNode;
+import structures.linkedlist.node.IntegerListNode;
 
 
 public class DtoHashTable extends AbstractHashTable<AbstractListNode<Integer>> {
@@ -13,7 +13,7 @@ public class DtoHashTable extends AbstractHashTable<AbstractListNode<Integer>> {
 	private static Integer STARTSIZE = 50;
 	private Integer numOfItems;
 	
-	private AbstractListNode<Integer>[] table; //Cant use IPojo<Integer> because of generic array issues.
+	private AbstractListNode<Integer>[] table; 
 	
 	protected DtoHashTable(){
 	

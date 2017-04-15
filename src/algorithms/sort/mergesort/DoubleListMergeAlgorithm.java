@@ -1,7 +1,7 @@
 package algorithms.sort.mergesort;
 
 import algorithms.sort.ISort;
-import structure.linkedlist.list.DoubleList;
+import structures.linkedlist.list.DoubleList;
 
 /**
  * Merge Sort class for linked lists with Double type node values. also has a static factory method.

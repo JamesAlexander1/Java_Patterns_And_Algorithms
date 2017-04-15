@@ -1,8 +1,8 @@
 package structures.hashtable;
 
 
-import structure.linkedlist.node.AbstractListNode;
-import structure.linkedlist.node.IntegerListNode;
+import structures.linkedlist.node.AbstractListNode;
+import structures.linkedlist.node.IntegerListNode;
 
 
 public class IntegerHashTableFactory extends AbstractHashTableFactory<AbstractListNode<Integer>> {

@@ -1,6 +1,13 @@
 package structures.hashtable;
 
 
+/**
+ * Abstract class for Hashtable implementations to extend
+ * Should probably be an interface.
+ * @author james
+ *
+ * @param <E>	- class of object to store in hashtable.
+ */
 public abstract class AbstractHashTable<E> {
 	
 	protected Integer tableSize;

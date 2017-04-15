@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import structure.linkedlist.node.StringListNode;
+import structures.linkedlist.node.StringListNode;
 
 public abstract class LocalProjectFileSystemDAO {
 

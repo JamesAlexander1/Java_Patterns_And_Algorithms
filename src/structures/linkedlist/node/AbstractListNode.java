@@ -1,4 +1,4 @@
-package structure.linkedlist.node;
+package structures.linkedlist.node;
 
 /**
  * Abstract Class specifying methods for a a linked list node implementation

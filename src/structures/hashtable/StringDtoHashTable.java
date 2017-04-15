@@ -1,7 +1,7 @@
 package structures.hashtable;
 
 
-import structure.linkedlist.node.StringListNode;
+import structures.linkedlist.node.StringListNode;
 
 public class StringDtoHashTable extends AbstractHashTable<StringListNode>{
 

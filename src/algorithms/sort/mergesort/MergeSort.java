@@ -1,6 +1,6 @@
 package algorithms.sort.mergesort;
 
-import structure.linkedlist.node.AbstractListNode;
+import structures.linkedlist.node.AbstractListNode;
 
 
 
